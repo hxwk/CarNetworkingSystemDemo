@@ -1,0 +1,96 @@
+2022-06-05 11:59:07,789 WARN [main] o.a.f.s.c.k.FlinkKafkaProducer [FlinkKafkaProducer.java:668] Property [transaction.timeout.ms] not specified. Setting it to 3600000 ms
+2022-06-05 11:59:11,159 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:87] Log file environment variable 'log.file' is not set.
+2022-06-05 11:59:11,160 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:93] JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'Key: 'web.log.path' , default: null (fallback keys: [{key=jobmanager.web.log.path, isDeprecated=true}])'.
+2022-06-12 16:30:14,563 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:87] Log file environment variable 'log.file' is not set.
+2022-06-12 16:30:14,570 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:93] JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'Key: 'web.log.path' , default: null (fallback keys: [{key=jobmanager.web.log.path, isDeprecated=true}])'.
+2022-06-12 16:30:15,885 WARN [DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) (1/1)] o.a.f.m.MetricGroup [TaskMetricGroup.java:144] The operator name DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) exceeded the 80 characters length limit and was truncated.
+2022-06-12 16:30:16,250 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: zhangsan.
+2022-06-12 16:30:16,251 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: 男.
+2022-06-12 16:30:16,251 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 25.
+2022-06-12 16:30:16,252 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: wangwu.
+2022-06-12 16:30:16,252 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: 女.
+2022-06-12 16:30:16,252 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 22.
+2022-06-12 16:30:16,269 ERROR [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.r.o.DataSinkTask [DataSinkTask.java:253] Error in user code: Execution of JDBC statement failed.:  DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)
+java.lang.RuntimeException: Execution of JDBC statement failed.
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.flush(JDBCOutputFormat.java:102) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.close(JDBCOutputFormat.java:118) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.operators.DataSinkTask.invoke(DataSinkTask.java:227) ~[flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.taskmanager.Task.doRun(Task.java:708) [flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.taskmanager.Task.run(Task.java:533) [flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+Caused by: java.sql.BatchUpdateException: Incorrect string value: '\xE5\xA5\xB3' for column 'gender' at row 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_241]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_241]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_241]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_241]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.SQLError.createBatchUpdateException(SQLError.java:1163) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1823) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchInternal(PreparedStatement.java:1307) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.StatementImpl.executeBatch(StatementImpl.java:970) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.flush(JDBCOutputFormat.java:99) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	... 5 common frames omitted
+Caused by: java.sql.SQLException: Incorrect string value: '\xE5\xA5\xB3' for column 'gender' at row 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3978) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2495) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1903) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2124) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1801) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	... 8 common frames omitted
+2022-06-12 16:30:53,663 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:87] Log file environment variable 'log.file' is not set.
+2022-06-12 16:30:53,667 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:93] JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'Key: 'web.log.path' , default: null (fallback keys: [{key=jobmanager.web.log.path, isDeprecated=true}])'.
+2022-06-12 16:30:54,997 WARN [DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) (1/1)] o.a.f.m.MetricGroup [TaskMetricGroup.java:144] The operator name DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) exceeded the 80 characters length limit and was truncated.
+2022-06-12 16:30:55,273 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: zhangsan.
+2022-06-12 16:30:55,275 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: male.
+2022-06-12 16:30:55,275 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 25.
+2022-06-12 16:30:55,276 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: wangwu.
+2022-06-12 16:30:55,277 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: female.
+2022-06-12 16:30:55,278 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 22.
+2022-06-12 16:30:55,294 ERROR [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.r.o.DataSinkTask [DataSinkTask.java:253] Error in user code: Execution of JDBC statement failed.:  DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)
+java.lang.RuntimeException: Execution of JDBC statement failed.
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.flush(JDBCOutputFormat.java:102) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.close(JDBCOutputFormat.java:118) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.operators.DataSinkTask.invoke(DataSinkTask.java:227) ~[flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.taskmanager.Task.doRun(Task.java:708) [flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at org.apache.flink.runtime.taskmanager.Task.run(Task.java:533) [flink-runtime_2.11-1.10.3.jar:1.10.3]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+Caused by: java.sql.BatchUpdateException: Data truncation: Data too long for column 'gender' at row 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_241]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_241]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_241]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_241]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.SQLError.createBatchUpdateException(SQLError.java:1163) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1823) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchInternal(PreparedStatement.java:1307) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.StatementImpl.executeBatch(StatementImpl.java:970) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at org.apache.flink.api.java.io.jdbc.JDBCOutputFormat.flush(JDBCOutputFormat.java:99) ~[flink-jdbc_2.11-1.10.3.jar:1.10.3]
+	... 5 common frames omitted
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'gender' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3976) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3914) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2530) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2683) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2495) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1903) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2124) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1801) ~[mysql-connector-java-5.1.47.jar:5.1.47]
+	... 8 common frames omitted
+2022-06-12 16:31:48,501 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:87] Log file environment variable 'log.file' is not set.
+2022-06-12 16:31:48,504 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:93] JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'Key: 'web.log.path' , default: null (fallback keys: [{key=jobmanager.web.log.path, isDeprecated=true}])'.
+2022-06-12 16:31:49,801 WARN [DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) (1/1)] o.a.f.m.MetricGroup [TaskMetricGroup.java:144] The operator name DataSource (at main(OutputFormatDemo.java:39) (org.apache.flink.api.java.io.CollectionInputFormat)) exceeded the 80 characters length limit and was truncated.
+2022-06-12 16:31:50,077 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: zhangsan.
+2022-06-12 16:31:50,078 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: male.
+2022-06-12 16:31:50,078 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 25.
+2022-06-12 16:31:50,080 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 1. Best effort approach to set its value: wangwu.
+2022-06-12 16:31:50,081 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 2. Best effort approach to set its value: female.
+2022-06-12 16:31:50,081 WARN [DataSink (org.apache.flink.api.java.io.jdbc.JDBCOutputFormat@6107227e) (1/1)] o.a.f.a.j.i.j.JDBCUtils [JDBCUtils.java:57] Unknown column type for column 3. Best effort approach to set its value: 22.
+2022-06-12 16:51:31,213 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:87] Log file environment variable 'log.file' is not set.
+2022-06-12 16:51:31,224 WARN [main] o.a.f.r.w.WebMonitorUtils [WebMonitorUtils.java:93] JobManager log files are unavailable in the web dashboard. Log file location not found in environment variable 'log.file' or configuration key 'Key: 'web.log.path' , default: null (fallback keys: [{key=jobmanager.web.log.path, isDeprecated=true}])'.
+2022-06-12 16:51:32,860 WARN [DataSource (at createInput(ExecutionEnvironment.java:594) (org.apache.flink.api.java.io.jdbc.JDBCInputFormat)) (1/1)] o.a.f.m.MetricGroup [TaskMetricGroup.java:144] The operator name DataSource (at createInput(ExecutionEnvironment.java:594) (org.apache.flink.api.java.io.jdbc.JDBCInputFormat)) exceeded the 80 characters length limit and was truncated.

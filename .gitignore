@@ -1,0 +1,4 @@
+# Project exclude paths
+/OffLineBatchAnalysis/target/
+/StreamingAnalysis/target/
+/VehicleNetworkWeb/target/
